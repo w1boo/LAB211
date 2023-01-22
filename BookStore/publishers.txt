@@ -1,0 +1,1 @@
+Publisher{id='P00000', name='null', phoneNumber=0}
