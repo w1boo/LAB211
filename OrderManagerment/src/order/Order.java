@@ -79,10 +79,20 @@ public class Order {
         this.status = status;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
     @Override
     public String toString() {
-        return "Order{" + "orderID=" + orderID + ", customerID=" + customerID + ", productID=" + productID + ", orderQuanity=" + orderQuanity + ", orderDate=" + orderDate + ", status=" + status + '}';
+        return "Order{" + "orderID=" + orderID + ", customerID=" + customerID + ", productID=" + productID + ", orderQuanity=" + orderQuanity + ", orderDate=" + orderDate + ", status=" + status + ", customer=" + customer + '}';
     }
+
+
 
 
 }

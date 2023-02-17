@@ -47,6 +47,7 @@ public ArrayList<Order> readOrdersFile(HashMap<String, Customer> customerMap, St
             }
 
             Order order = new Order(orderID, customer, productID, orderQuantity, orderDate, status);
+            order.setCustomerID(customerID);
             list.add(order);
         }
     } catch (IOException e) {
@@ -60,13 +61,17 @@ public void PrintOrdersFromFile(String filename) {
     list.clear();
     list = readOrdersFile(customerMap, filename);
     Collections.sort(list, new Comparator<Order>() {
+        @Override
         public int compare(Order o1, Order o2) {
-            String name1 = o1.getCustomerID();
-            String name2 = o2.getCustomerID();
-            return name1.compareTo(name2);
-        }
+    String lastName1 = o1.getCustomer().getCustomerName().split(" ")[o1.getCustomer().getCustomerName().split(" ").length - 1];
+    String lastName2 = o2.getCustomer().getCustomerName().split(" ")[o2.getCustomer().getCustomerName().split(" ").length - 1];
+    return lastName1.compareTo(lastName2);       }
+
+//        String name1 = o1.getCustomer().getCustomerName();
+//        String name2 = o2.getCustomer().getCustomerName();
+//        return name1.compareTo(name2);        }
     });
-    for (Order order : list) {
+    for(Order order: list){
         System.out.println(order.toString());
     }
 }
