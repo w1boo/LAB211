@@ -21,7 +21,8 @@ public class Order {
     private String orderDate;
     private String status;
     private Customer customer;
-    public Order(String orderID,Customer customer , String productID, int orderQuanity, String orderDate, String status) {
+    private Product product;
+    public Order(String orderID,Customer customer , Product product, int orderQuanity, String orderDate, String status) {
         this.orderID = orderID;
         this.customer = customer;
         this.customerID = customerID;
@@ -89,7 +90,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "orderID=" + orderID + ", customerID=" + customerID + ", productID=" + productID + ", orderQuanity=" + orderQuanity + ", orderDate=" + orderDate + ", status=" + status + ", customer=" + customer + '}';
+        return orderID + "," + customerID + "," + productID + "," + orderQuanity + "," + orderDate + "," + status + "," + customer ;
     }
 
 

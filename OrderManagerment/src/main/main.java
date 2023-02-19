@@ -24,7 +24,7 @@ public class main {
         int Menuchoice;
         CustomerList cL = new CustomerList();
         ProductList pL = new ProductList();
-        OrderList oL= new OrderList(cL);
+        OrderList oL= new OrderList(cL,pL);
         HashMap<String, Customer> customerMap = cL.readCustomersFile("customers.txt");
         Scanner sc=new Scanner(System.in);
         do{
@@ -35,7 +35,11 @@ public class main {
             System.out.println("4. Add a customer");
             System.out.println("5. Update a customer");
             System.out.println("6. Save customer to file");
-            System.out.println("7. read all orders");
+            System.out.println("7. print all orders");
+            System.out.println("8. Print pending orders");
+            System.out.println("9. Add new order");
+            System.out.println("10.Save order to file ");
+
             System.out.println(". Exit");
             System.out.print("Choose your option: ");
             Menuchoice = sc.nextInt();
@@ -62,6 +66,15 @@ public class main {
                     break;
                 case 7:
                     oL.PrintOrdersFromFile("orders.txt");
+                    break;
+                case 8:    
+                    oL.printPendingOrders("orders.txt");
+                    break;
+                case 9:
+                    oL.addNewOrder();
+                    break;
+                case 10:
+                    oL.saveOrderToFile();
                     break;
                 default:
                     System.out.println("Invalid choice , Try again");

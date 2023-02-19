@@ -1,4 +1,4 @@
-001,Move Free,box of 200 tablets,Schiff (USA),658.000
+P001,Move Free,box of 200 tablets,Schiff (USA),658.000
 P002,Glucosamine,box of 150 tablets,Schiff (USA),490.000
 P003,Glucosamine,box of 375 tablets,Kirkland (USA),583.000
 P004,Fish Oil,box of 400 tablets,Kirkland (USA),389.000

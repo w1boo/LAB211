@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -15,7 +16,8 @@ import java.util.ArrayList;
  */
 public class ProductList {
     public ArrayList<Product> list = new ArrayList<>();
-public void readProductsFile(String filename) {
+public HashMap<String, Product> readProductsFile(String filename) {
+        HashMap<String, Product> productMap = new HashMap<>();
     try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
         String line;
         while ((line = br.readLine()) != null) {
@@ -26,17 +28,20 @@ public void readProductsFile(String filename) {
             String origin = productInfo[3];
             double price = Double.parseDouble(productInfo[4]);
             Product product = new Product(productID, productName, unit, origin,price);
+            productMap.put(productID, product);
             list.add(product);
-            list.toString();
+
         }
     } catch (IOException e) {
         System.out.println("Cant read the file");;
     }
+    return productMap;
 }
-public void printProductsFile(String filename) {
-    readProductsFile(filename);
-    for (Product product : list) {
-        System.out.println(product.toString());
+    public void printProductsFile(String filename) {
+        list.clear();
+        readProductsFile(filename);
+        for (Product product : list){
+            System.out.println(product.toString());
+        }
     }
-}
 }

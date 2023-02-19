@@ -90,7 +90,7 @@ public Customer searchCustomerById(String id) {
         }
         }while(index>=0);
         name = Validation.regexString("Input Customer's name: ", "Invalid name, try again", "^[^\\d]{5,30}$");
-        address = Validation.getString("Input Customer's address", "Invalid address");
+        address = Validation.getString("Input Customer's address: ", "Invalid address");
         phone = Validation.regexString("Input phone number: ", "Invalid number, try agian", "^\\d{10,12}$");
         Customer customer = new Customer(id, name, address, phone);
         list.add(customer);
@@ -118,16 +118,6 @@ public Customer searchCustomerById(String id) {
     }
     }
     }
-//    public void saveCustomersToFile() {
-//    try (PrintWriter writer = new PrintWriter(new FileOutputStream("customers.txt", true))) {
-//        for (Customer customer : list) {
-//            writer.println(customer.toString());
-//        }
-//        System.out.println("Customers saved to file");
-//    } catch (FileNotFoundException e) {
-//        System.out.println("Error writing to file: " + e.getMessage());
-//    }
-//}
     public void saveCustomersToFile() {
     try (PrintWriter writer = new PrintWriter(new FileOutputStream("customers.txt"))) {
         for (Customer customer : list) {
@@ -138,6 +128,7 @@ public Customer searchCustomerById(String id) {
         System.out.println("Error writing to file");
     }
 }
+    
 }
 
 
