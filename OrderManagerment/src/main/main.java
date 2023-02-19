@@ -3,16 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package main;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import order.Customer;
 import order.CustomerList;
-import order.Product;
 import order.ProductList;
-import order.Order;
 import order.OrderList;
         
 /**

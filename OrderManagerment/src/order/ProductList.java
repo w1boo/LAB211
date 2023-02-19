@@ -33,7 +33,7 @@ public HashMap<String, Product> readProductsFile(String filename) {
 
         }
     } catch (IOException e) {
-        System.out.println("Cant read the file");;
+        System.out.println("Cant read the file");
     }
     return productMap;
 }
