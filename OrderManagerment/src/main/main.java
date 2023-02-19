@@ -20,8 +20,8 @@ import order.OrderList;
  * @author Khoa
  */
 public class main {
-    public static void main(String[] args) throws IOException {
-        int Menuchoice;
+    public static void main(String[] args) {
+        int Menuchoice,Subchoice;
         CustomerList cL = new CustomerList();
         ProductList pL = new ProductList();
         OrderList oL= new OrderList(cL,pL);
@@ -38,9 +38,9 @@ public class main {
             System.out.println("7. print all orders");
             System.out.println("8. Print pending orders");
             System.out.println("9. Add new order");
-            System.out.println("10.Save order to file ");
-
-            System.out.println(". Exit");
+            System.out.println("10.Update order ");
+            System.out.println("11.Save order to file");
+            System.out.println("12.Exit");
             System.out.print("Choose your option: ");
             Menuchoice = sc.nextInt();
             sc.nextLine();
@@ -74,7 +74,26 @@ public class main {
                     oL.addNewOrder();
                     break;
                 case 10:
+                    System.out.println("1. Update order information");
+                    System.out.println("2. Delete order");
+                    System.out.print("Enter your choice: ");
+                    Subchoice = sc.nextInt();
+                    sc.nextLine();
+                    switch (Subchoice) {
+                        case 1:
+                            oL.updateOrder();
+                            break;
+                        case 2:
+                            oL.deleteOrder();
+                            break;
+                        default:
+                            System.out.println("Invalid choice, try again");
+                    }
+                    break;
+                case 11:
                     oL.saveOrderToFile();
+                    break;
+                case 12:
                     break;
                 default:
                     System.out.println("Invalid choice , Try again");
